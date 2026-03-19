@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 🔥 importante -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feliz Cumpleaños Kenya</title>
 
     <style>
@@ -68,7 +68,6 @@
             display: block;
         }
 
-        /* 📱 Ajustes extra para celular */
         @media (max-width: 600px) {
             .galeria {
                 grid-template-columns: 1fr;
@@ -86,7 +85,8 @@
 </head>
 <body>
 
-<audio id="musica"></audio>
+<!-- 🎵 AUDIO (puedes quitar controls después de probar) -->
+<audio id="musica" controls></audio>
 
     <!-- Pantalla 1 -->
     <div id="pantalla1" class="pantalla activa">
@@ -150,14 +150,22 @@ let actual = 1;
 function siguiente() {
 
     let audio = document.getElementById("musica");
-    audio.src = canciones[indiceCancion];
-    audio.play();
+
+    // 🎵 cambiar canción con manejo de error
+    if (canciones[indiceCancion]) {
+        audio.src = canciones[indiceCancion];
+        
+        audio.play().catch(error => {
+            console.log("Error al reproducir:", error);
+        });
+    }
 
     indiceCancion++;
     if (indiceCancion >= canciones.length) {
         indiceCancion = 0;
     }
 
+    // 🎬 cambiar pantalla
     document.getElementById("pantalla" + actual).classList.remove("activa");
     actual++;
     document.getElementById("pantalla" + actual).classList.add("activa");
