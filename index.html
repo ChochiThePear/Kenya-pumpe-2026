@@ -7,18 +7,18 @@
     <style>
         .galeria {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+            grid-template-columns: repeat(2, 1fr);
             gap: 10px;
             max-width: 500px;
             margin: 20px auto;
         }
+
         .galeria img {
             width: 100%;
             border-radius: 10px;
         }
-        body {
 
-            
+        body {
             text-align: center;
             font-family: Arial, sans-serif;
             color: white;
@@ -67,6 +67,9 @@
 </head>
 <body>
 
+<!-- 🎵 AUDIO -->
+<audio id="musica"></audio>
+
     <!-- Pantalla 1 -->
     <div id="pantalla1" class="pantalla activa">
         <h1>✨🎉 Feliz Cumpleaños Kenya 🎉✨</h1>
@@ -79,22 +82,23 @@
         <h1>Perdon</h1>
         <p>Al chile si se me olvido</p>
         <p>(。﹏。*)</p>
-         <img src="uwu.png" width="300">
+        <img src="uwu.png">
         <button onclick="siguiente()">Siguiente</button>
     </div>
 
-     <!-- Pantalla 3 -->
+    <!-- Pantalla 3 -->
     <div id="pantalla3" class="pantalla">
         <h1>Pero te tengo algo mejor</h1>
         <p>Para que se te pase la decepcion</p>
         <p>(。﹏。*)</p>
-        <img src="uwu.png" width="300">
+        <img src="gato-saltando-uwu.gif"> <!-- 🔥 corregido -->
         <button onclick="siguiente()">Siguiente</button>
     </div>
 
+    <!-- Pantalla 4 -->
     <div id="pantalla4" class="pantalla">
         <h1>Recupere esto</h1>
-        <p>Tenemos que tomarnos fotos junto, no tenemos xd</p>
+        <p>Tenemos que tomarnos fotos juntos, no tenemos xd</p>
         
         <div class="galeria">
             <img src="Captura_de_pantalla_(717).png">
@@ -106,23 +110,43 @@
         <button onclick="siguiente()">Siguiente</button>
     </div>
 
-
     <!-- Pantalla 5 -->
     <div id="pantalla5" class="pantalla">
         <h1>🎂TQM Kenya🎂</h1>
-        <img src="caritas.png" width="300">
+        <img src="caritas.png">
         <p>Aunque se me olvidó... </p>
     </div>
 
-    <script>
-        let actual = 1;
+<script>
+let canciones = [
+    "PoPiPo.mp3",
+    "C418-Dry-Hands.mp3",
+    "C418-Wet Hands.mp3",
+    "StardewValley-OST-Flower-Dance.mp3",
+    "Flutey(World-Map)-Castle-Crashers.mp3"
+];
 
-        function siguiente() {
-            document.getElementById("pantalla" + actual).classList.remove("activa");
-            actual++;
-            document.getElementById("pantalla" + actual).classList.add("activa");
-        }
-    </script>
+let indiceCancion = 0;
+let actual = 1;
+
+function siguiente() {
+
+    // 🎵 cambiar canción
+    let audio = document.getElementById("musica");
+    audio.src = canciones[indiceCancion];
+    audio.play();
+
+    indiceCancion++;
+    if (indiceCancion >= canciones.length) {
+        indiceCancion = 0;
+    }
+
+    // 🎬 cambiar pantalla
+    document.getElementById("pantalla" + actual).classList.remove("activa");
+    actual++;
+    document.getElementById("pantalla" + actual).classList.add("activa");
+}
+</script>
 
 </body>
 </html>
