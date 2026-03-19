@@ -5,7 +5,20 @@
     <title>Feliz Cumpleaños Kenya</title>
 
     <style>
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+            gap: 10px;
+            max-width: 500px;
+            margin: 20px auto;
+        }
+        .galeria img {
+            width: 100%;
+            border-radius: 10px;
+        }
         body {
+
+            
             text-align: center;
             font-family: Arial, sans-serif;
             color: white;
@@ -14,7 +27,7 @@
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
-}
+        }
 
         h1 {
             font-size: 50px;
@@ -66,23 +79,36 @@
         <h1>Perdon</h1>
         <p>Al chile si se me olvido</p>
         <p>(。﹏。*)</p>
-        <img src="gato-saltando-uwu.gif" width="200">
+         <img src="uwu.png" width="300">
         <button onclick="siguiente()">Siguiente</button>
     </div>
 
      <!-- Pantalla 3 -->
     <div id="pantalla3" class="pantalla">
-        <h1>Perdon</h1>
-        <p>Al chile si se me olvido</p>
+        <h1>Pero te tengo algo mejor</h1>
+        <p>Para que se te pase la decepcion</p>
         <p>(。﹏。*)</p>
-        <img src="gato-saltando-uwu.gif" width="200">
+        <img src="uwu.png" width="300">
+        <button onclick="siguiente()">Siguiente</button>
+    </div>
+
+    <div id="pantalla4" class="pantalla">
+        <h1>Recupere esto</h1>
+        <p>Tenemos que tomarnos fotos junto, no tenemos xd</p>
+        <div class="galeria">
+            <img src="Captura_de_pantalla_(717).png">
+            <img src="Captura_de pantalla_(184).png">
+            <img src="Captura_de_pantalla_(79).png">
+            <img src="2025-08-19_00.29.17.png">
+</div>
         <button onclick="siguiente()">Siguiente</button>
     </div>
 
 
-    <!-- Pantalla 4 -->
-    <div id="pantalla4" class="pantalla">
+    <!-- Pantalla 5 -->
+    <div id="pantalla5" class="pantalla">
         <h1>🎂TQM Kenya🎂</h1>
+        <img src="caritas.png" width="300">
         <p>Aunque se me olvidó... </p>
     </div>
 
