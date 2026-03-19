@@ -23,37 +23,67 @@
             text-shadow: 2px 2px 5px black;
         }
 
-        h2 {
-            font-size: 30px;
-            color: lightblue;
-            text-shadow: 2px 2px 5px black;
-        }
-
         p {
             font-size: 20px;
-            color: white;
             text-shadow: 1px 1px 3px black;
         }
 
         img {
-            display: block;
-            margin: 20px auto;
             width: 300px;
+            margin: 20px auto;
+            display: block;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: pink;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .pantalla {
+            display: none;
+        }
+
+        .activa {
+            display: block;
         }
     </style>
-
 </head>
 <body>
 
-    <h1>🎉 Feliz Cumpleaños Kenya 🎉</h1>
-    
-    <p>De cabrones si se me olvidó que cumplías años :P</p>
+    <!-- Pantalla 1 -->
+    <div id="pantalla1" class="pantalla activa">
+        <h1>🎉 Feliz Cumpleaños Kenya 🎉</h1>
+        <p>Tengo algo que decirte 👀</p>
+        <button onclick="siguiente()">Siguiente</button>
+    </div>
 
-    <h2>Sobre mí</h2>
-    <p>Hola, soy [tu nombre] y esta es mi primera web.</p>
+    <!-- Pantalla 2 -->
+    <div id="pantalla2" class="pantalla">
+        <h1>💖 Sorpresa 💖</h1>
+        <p>Espero que tengas un día increíble 🥳</p>
+        <img src="gato-saltando-uwu.gif">
+        <button onclick="siguiente()">Siguiente</button>
+    </div>
 
-    <h2>Imagen</h2>
-    <img src="gato-saltando-uwu.gif" alt="Imagen de ejemplo">
+    <!-- Pantalla 3 -->
+    <div id="pantalla3" class="pantalla">
+        <h1>🎂 Mensaje Final 🎂</h1>
+        <p>Aunque se me olvidó... se te quiere 😅</p>
+    </div>
+
+    <script>
+        let actual = 1;
+
+        function siguiente() {
+            document.getElementById("pantalla" + actual).classList.remove("activa");
+            actual++;
+            document.getElementById("pantalla" + actual).classList.add("activa");
+        }
+    </script>
 
 </body>
 </html>
